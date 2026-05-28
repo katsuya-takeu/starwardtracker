@@ -178,7 +178,13 @@ class StatsViewer:
         return self.CHARACTER_COSTS.get(chara_id, 2.0)
 
     def get_view(self, jsonl_paths="log_*.jsonl"):
-        save_path = Path(self.config.data["save_path"])
+        # 💡 ベースの保存先パスを取得
+        base_save_path = Path(self.config.data["save_path"])
+        # 💡 現在選択中のプロファイル名を取得（なければ default）
+        current_profile = self.config.data.get("profile", "default")
+        
+        # 💡 パスを「保存先 / プロファイル名」にする (例: match_log/default/)
+        save_path = base_save_path / current_profile
         
         if isinstance(jsonl_paths, str):
             if "*" in jsonl_paths:

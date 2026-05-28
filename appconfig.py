@@ -10,10 +10,8 @@ class AppConfig:
             "is_all_record": False,
             "is_view_data": False,
             "save_path": "",
-            "window_width": 350,
-            "window_height": 600,
-            "window_top": 100,
-            "window_left": 100,
+            "profile_list":["default"],
+            "profile":"default",
         }
         self.load()
 

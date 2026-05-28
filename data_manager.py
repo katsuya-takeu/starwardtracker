@@ -7,6 +7,7 @@ from pathlib import Path
 import sys
 import json
 from datetime import datetime, timedelta
+from appconfig import AppConfig
 """
 0: 試合中
 1: リザルト
@@ -14,11 +15,12 @@ from datetime import datetime, timedelta
 3: 試合途中終了
 """
 class DataManager:
-    def __init__(self, path):
+    def __init__(self, config:AppConfig):
         self.current_match = ""
         # 文字列のpathをPathオブジェクトに変換
-        base_path = Path(path)
-        self.data_path = base_path / "match_log"
+        base_path = Path(config.data["save_path"])
+        current_profile = config.data.get("profile", "default")
+        self.data_path = base_path / current_profile
         
         # parents=Trueで中間ディレクトリも作成、exist_ok=Trueで既存でもエラーにしない
         self.data_path.mkdir(parents=True, exist_ok=True)

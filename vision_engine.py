@@ -88,8 +88,12 @@ class VisionEngine:
     def get_game_rect(self):
         """ウィンドウ座標を取得"""
         wins = gw.getWindowsWithTitle('星之翼')
+        wins_jp = gw.getWindowsWithTitle('星の翼')
         if wins and not wins[0].isMinimized:
             win = wins[0]
+            return (win.left, win.top, win.width, win.height)
+        elif wins_jp and not wins_jp[0].isMinimized:
+            win = wins_jp[0]
             return (win.left, win.top, win.width, win.height)
         return None
 
