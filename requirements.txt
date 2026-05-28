@@ -1,0 +1,11 @@
+flet
+flet-charts
+opencv-python
+numpy
+Pillow
+pytesseract
+PyGetWindow
+pyrect
+pywin32
+pandas
+mss
