@@ -436,7 +436,7 @@ class VisionEngine:
         height = int(gray_item.shape[0] * scale_factor)
         gray_item = cv2.resize(gray_item, (width, height), interpolation=cv2.INTER_CUBIC)
         _, img = cv2.threshold(gray_item, 200, 255, cv2.THRESH_BINARY)
-        cv2.imwrite("debug_result_row.png", img)
+        #cv2.imwrite("debug_result_row.png", img)
         h, w = img.shape[:2]
         damage_img = img[0:h, 0:int(w * 0.2)]
         kd_img = img[0:h, int(w * 0.28):int(w * 0.36)]
