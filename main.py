@@ -212,7 +212,7 @@ def main(page: ft.Page):
         height=40,
         on_change=toggle_monitor
     )
-    if not config.data["save_path"]:config.update("save_path", os.path.join(base_path, "match_log"))
+
     current_save_path = ft.Text(f"現在の保存先: {config.data['save_path']}")
 
     async def handle_get_directory_path(e: ft.Event[ft.Button]):
@@ -281,8 +281,8 @@ def main(page: ft.Page):
     engine = VisionEngine(data_manager, tesseract_exe, base_path)
 
     state = {
-        #"is_debug": True,
-        "is_debug": False,
+        "is_debug": True,
+        #"is_debug": False,
         "is_monitor": True,
         "record_day": 0,
         "display_mode": 0,  # 0: グラフ, 1: 履歴, 2: 勝率
